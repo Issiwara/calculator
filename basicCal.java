@@ -8,7 +8,7 @@ public class basicCal {
         System.out.println("Enter an option : Addition = 1 or Subscript = 2 or Multiplication =3");
         int operator = uInput.nextInt();
 
-        Scanner s = new Scanner(new File("E:\\Desktop\\oop lankadroid\\Interfacee\\sample.TXT"));
+        Scanner s = new Scanner(new File("sample.TXT"));
         int n1 = s.nextInt();
         int n2 = s.nextInt();
 
