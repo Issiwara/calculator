@@ -24,6 +24,11 @@ public class OperationFactory {
             {
                 operation = new MulOperation();
             }
+            else if(operator.equals("dev"))
+
+            {
+                operation = new DevOperation();
+            }
 
             return operation;
             
