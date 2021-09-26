@@ -7,16 +7,20 @@ import java.util.List;
 
 public class FileNumberRepository implements NumberRepository {
 
-    public Double[] getNumbers() throws IOException { //will change the method signature too..
-        //read the numbers text file
-        List<String> numbersStrs = Files.readAllLines(
-                Paths.get("/Users/hasinisamarathunga/Desktop/calculator/numbers.txt")
-        );
+    public Double[] getNumbers() throws NumberRepositoryException {
+        //File reading
+        List<String> numbersStrs = null;
+        try {
+            numbersStrs = Files.readAllLines(
+                    Paths.get("/Users/pasandevin/My_Files/Software Construction/Calculator/numbers.txt")
+            );
+        } catch (IOException e) {
+            throw new NumberRepositoryException(e, "Couldn't read the text file");
+        }
 
         double number1 = Double.parseDouble(numbersStrs.get(0));
         double number2 = Double.parseDouble(numbersStrs.get(1));
 
         return new Double[]{number1, number2};
     }
-
 }

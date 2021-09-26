@@ -25,15 +25,19 @@ public class CalculatorApp{
 
 
     public void execute()
-    { 
-         String operator = inputs.getOperator();
-
-         Double[] numbers = numberRepository.getNumbers(); 
-    
-        Operation operation = operationFactory.getInstance(operator);
-        Double result = operation.execute(numbers);
-
-        ui.showmessage("The result is " + result);
+    {
+        try
+        {
+            String operator = inputs.getOperator();
+            Double[] numbers = numberRepository.getNumbers();
+            Operation operation = operationFactory.getInstance(operator);
+            Double result = operation.execute(numbers);
+            ui.showmessage("The result is " + result);
         
     }
+        catch (InvalidCalcOperationExceptiob | InvalidInputException | NumberRepositoryException)
+        {
+            ui.showMessage("Error Occured! " + e.getMessage());
+
+        }
 }

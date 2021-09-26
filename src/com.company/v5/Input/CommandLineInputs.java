@@ -12,16 +12,18 @@ package com.company.v5.Input;
     
         public String getOperator()
         {
-            if (args.length == 0) {
-                System.out.println("Please provide the operation as an argument");
-                return "";
+            if (args.length == 0)
+            {
+
+
+                throw new InvalidInputException("Provide the Operation");
             }
     
             String operator = args[0];
     
             if (!(operator.equals("add") || operator.equals("sub") || operator.equals("mul")||operator.equals("dev"))) {
-                System.out.println("Please provide add,sub or mul as the operator argument");
-                return "";
+                throw new InvalidInputException("Provide the Operation");
+
             }
     
             return operator;
