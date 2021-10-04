@@ -1,10 +1,10 @@
 package com.company.v5.repository;
 
-import java.io.IOException;
+
 
 public class SqlNumberRepository implements NumberRepository{
     @Override
-    public Double[] getNumbers() throws IOException {
+    public Double[] getNumbers()  {
 
         //todo: Read number and Return
 

@@ -22,7 +22,7 @@ public class OperationFactory {
         else if (operator.equals("div"))
         {
             operation = new DivOperation();
-        }//violation OCP
+        }
 
         return operation;
     }

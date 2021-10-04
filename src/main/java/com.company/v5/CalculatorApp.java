@@ -4,7 +4,9 @@ import com.company.v5.Operations.InvalidCalcOperationException;
 import com.company.v5.Operations.OperationFactory;
 import com.company.v5.Operations.Operations;
 import com.company.v5.input.Inputs;
+import com.company.v5.input.InvalidInputException;
 import com.company.v5.repository.NumberRepository;
+import com.company.v5.repository.NumberRepositoryException;
 import com.company.v5.ui.UI;
 import jdk.dynalink.Operation;
 
@@ -27,12 +29,28 @@ public class CalculatorApp
         this.ui = ui;
     }
 
-    public void execute() throws IOException
+    public void execute()
     {
-        String operator = inputs.getOperator();
-        Double[] numbers = numberRepository.getNumbers();
+        String operator ;
+        try {
+            operator = inputs.getOperator();
+        } catch (InvalidInputException e) {
+            ui.showMessage("Error Occured."+e.getMessage());
+            return;
+        }
+
+
+        Double[] numbers = new Double[0];
+        try {
+            numbers = numberRepository.getNumbers();
+        } catch (NumberRepositoryException e) {
+            ui.showMessage("Error Occured."+e.getMessage());
+            return;
+        }
         Operations operation = operationFactory.getInstance(operator);
-        Double result = null;
+
+
+        Double result ;
         try {
             result = operation.execute(numbers);
         } catch (InvalidCalcOperationException e) {
