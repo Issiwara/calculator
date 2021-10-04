@@ -9,7 +9,7 @@ import com.company.v5.repository.SqlNumberRepository;
 import com.company.v5.ui.CmdLineUi;
 import com.company.v5.ui.UI;
 
-//Main class is the coordinator now...
+
 public class Main {
 
     public static void main(String[] args)  {
